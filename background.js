@@ -91,7 +91,12 @@ const debugLog = (loggingStyle) => {
             if (typeof angular.element(document.body).injector().get("CacheService").cache != 'undefined') {
                 cacheData = angular.element(document.body).injector().get("CacheService").cache
             }
-    
+        }
+        catch {
+            console.log('No unqork cache data found.');
+        }
+
+        try {
             if (typeof angular.element('.unqorkio-form').scope().submission != 'undefined') {
                 pageData = angular.element('.unqorkio-form').scope().submission;
                 logPageData();
@@ -99,7 +104,7 @@ const debugLog = (loggingStyle) => {
         }
         catch {
             console.log('No unqork page data found.');
-        }
+        }        
     }
     else {
         console.log('No unqork page found.');
